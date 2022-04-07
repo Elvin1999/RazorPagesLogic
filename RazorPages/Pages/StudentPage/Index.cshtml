@@ -1,0 +1,45 @@
+﻿@page
+@model RazorPages.Pages.StudentPage.IndexModel
+@{
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+
+    <h1>Student Page</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var s in Model.Students){
+            <tr>
+                <th scope="row">@s.Id</th>
+                <td>@s.Name</td>
+                <td>@s.Score</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <form method="get">
+        Search : <input asp-for="Search" />
+      
+        <input type="submit" value="Submit" />
+    </form>
+    <form method="post">
+        Name : <input asp-for="Student.Name" />
+        Score : <input asp-for="Student.Score" />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
+
